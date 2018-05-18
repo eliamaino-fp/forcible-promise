@@ -1,20 +1,28 @@
 import { forciblePromise } from '../src/forcible-promise'
 
+function setUpForcible(basePromise) {
+  this.isRejected = false
+  this.isResolved = false
+  this.forcibilePromise = forciblePromise(basePromise)
+
+  this.forcibilePromise
+    .then(() => {
+      this.isResolved = true
+    })
+    .catch(() => {
+      this.isRejected = true
+    })
+}
+
 describe('Forcible Promise', function() {
+  beforeEach(function() {
+    this.setUpForcible = setUpForcible.bind(this);
+  })
+
   describe('when base Promise is still pending', function() {
     beforeEach(function(done) {
-      this.basePromise = new Promise((resolve, reject) => {})
-      this.isRejected = false
-      this.isResolved = false
-      this.forcibilePromise = forciblePromise(this.basePromise)
-
-      this.forcibilePromise
-        .then(() => {
-          this.isResolved = true
-        })
-        .catch(() => {
-          this.isRejected = true
-        })
+      const basePromise = new Promise((resolve, reject) => {})
+      this.setUpForcible(basePromise);
 
       done()
     })
@@ -46,18 +54,8 @@ describe('Forcible Promise', function() {
 
   describe('when base Promise resolves', function() {
     beforeEach(function(done) {
-      this.basePromise = Promise.resolve()
-      this.isRejected = false
-      this.isResolved = false
-      this.forcibilePromise = forciblePromise(this.basePromise)
-
-      this.forcibilePromise
-        .then(() => {
-          this.isResolved = true
-        })
-        .catch(() => {
-          this.isRejected = true
-        })
+      const basePromise = Promise.resolve()
+      this.setUpForcible(basePromise);
 
       done()
     })
@@ -69,18 +67,8 @@ describe('Forcible Promise', function() {
 
   describe('when base Promise rejects', function() {
     beforeEach(function(done) {
-      this.basePromise = Promise.reject()
-      this.isRejected = false
-      this.isResolved = false
-      this.forcibilePromise = forciblePromise(this.basePromise)
-
-      this.forcibilePromise
-        .then(() => {
-          this.isResolved = true
-        })
-        .catch(() => {
-          this.isRejected = true
-        })
+      const basePromise = Promise.reject()
+      this.setUpForcible(basePromise);
 
       done()
     })
