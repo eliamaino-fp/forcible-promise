@@ -1,0 +1,30 @@
+{
+  "name": "forcible-promise",
+  "version": "1.0.0",
+  "description": "A es6 Promise wrapper which allows you to force either resolve or reject",
+  "main": "forcible-promise.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliamaino-fp/forcible-promise.git"
+  },
+  "keywords": [
+    "es6",
+    "Promise"
+  ],
+  "author": "Elia Maino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eliamaino-fp/forcible-promise/issues"
+  },
+  "homepage": "https://github.com/eliamaino-fp/forcible-promise#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "jasmine": "^3.1.0"
+  }
+}
