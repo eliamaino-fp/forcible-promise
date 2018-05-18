@@ -2,7 +2,7 @@
   "name": "forcible-promise",
   "version": "1.0.0",
   "description": "A es6 Promise wrapper which allows you to force either resolve or reject",
-  "main": "forcible-promise.js",
+  "main": "src/forcible-promise.js",
   "scripts": {
     "test": "jasmine"
   },
