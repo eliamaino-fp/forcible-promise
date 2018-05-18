@@ -1,3 +1,6 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://badge.fury.io/js/forcible-promise.svg)](https://badge.fury.io/js/forcible-promise)
+
 # forcible-promise
 A JavaScript es6 Promise wrapper which allows you to force either resolve or reject.
 
